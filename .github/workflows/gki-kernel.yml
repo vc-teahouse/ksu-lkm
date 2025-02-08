@@ -38,13 +38,6 @@ on:
         required: false
         type: boolean
         default: true
-      embed_ksud:
-        required: false
-        type: string
-        default: ksud-aarch64-linux-android
-        description: >
-          Artifact name of prebuilt ksud to be embedded
-          for example: ksud-aarch64-linux-android
       debug:
         required: false
         type: boolean
@@ -80,17 +73,10 @@ jobs:
 
       - uses: actions/checkout@v4
         with:
+          repository: rsuntk/KernelSU
+          ref: main
           path: KernelSU
           fetch-depth: 0
-
-      - name: Setup need_upload
-        id: need_upload
-        run: |
-          if [ ! -z "${{ secrets.BOT_TOKEN }}" ]; then
-            echo "UPLOAD=true" >> $GITHUB_OUTPUT
-          else
-            echo "UPLOAD=false" >> $GITHUB_OUTPUT
-          fi
 
       - name: Setup kernel source
         run: |
