@@ -10,6 +10,8 @@ jobs:
     needs:
       - build-lkm
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v4
@@ -29,6 +31,7 @@ jobs:
         with:
           files: android*-lkm/*_kernelsu.ko
           name: ${{ steps.ksu.outputs.TAGS }}-${{ github.run_id }}
+          tag_name: ${{ github.run_id }}
           body: |
             Last KernelSU commit: ```${{ steps.ksu.outputs.LAST_COMMIT }}```
             KernelSU version: ```${{ steps.ksu.outputs.NUM }}```
