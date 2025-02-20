@@ -1,5 +1,5 @@
 ### Why this repository exist?
-Building LKM took a lot of time (~25 mins), and also affect KernelSU manager building process.
+Building LKM took a lot of times (~27 mins), and thus also affect KernelSU manager building process.
 
 By separating this, it can save a lot of time while building manager.
 
