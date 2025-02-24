@@ -10,6 +10,12 @@ on:
       - ".github/workflows/build-lkm.yml"
   workflow_call:
   workflow_dispatch:
+    inputs:
+      KSUBRANCH:
+        type: string
+        description: "KernelSU branch"
+        default: 'main'
+        required: true
 jobs:
   build-lkm:
     strategy:
@@ -39,3 +45,4 @@ jobs:
       version_name: ${{ matrix.version }}.${{ matrix.sub_level }}
       tag: ${{ matrix.version }}-${{ matrix.os_patch_level }}
       os_patch_level: ${{ matrix.os_patch_level }}
+      ksu_branch: ${{ inputs.KSUBRANCH }}
