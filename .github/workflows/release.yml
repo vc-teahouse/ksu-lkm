@@ -18,7 +18,7 @@ jobs:
       - name: Get KernelSU manifest
         id: ksu
         run: |
-          git clone https://github.com/rsuntk/KernelSU.git && cd KernelSU
+          git clone https://github.com/luyanci/KernelSU.git && cd KernelSU
           echo "TAGS=`git describe --tags --always`" >> $GITHUB_OUTPUT
           COMMIT_COUNT=$(git rev-list --count HEAD)
           VER=$(expr 10200 + $COMMIT_COUNT)
