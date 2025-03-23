@@ -77,7 +77,7 @@ jobs:
 
       - uses: actions/checkout@v4
         with:
-          repository: rsuntk/KernelSU
+          repository: luyanci/KernelSU
           ref: ${{ inputs.ksu_branch }}
           path: KernelSU
           fetch-depth: 0
