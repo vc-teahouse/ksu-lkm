@@ -43,9 +43,15 @@ on:
         type: boolean
         default: false
       ksu_branch:
-        required: true
+        required: false
         type: string
         description: KernelSU branch
+        default: 'main'
+      build_lkm:
+        required: false
+        type: boolean
+        description: Build lkm
+        default: true
     secrets:
       BOOT_SIGN_KEY:
         required: false
@@ -154,6 +160,7 @@ jobs:
           save: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
       - name: Setup for LKM
+        if: inputs.build_lkm == true
         working-directory: android-kernel
         run: |
           pip install ast-grep-cli
