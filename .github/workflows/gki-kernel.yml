@@ -56,7 +56,7 @@ on:
         required: false
         type: boolean
         description: add lxc support
-        default: true
+        default: false
     secrets:
       BOOT_SIGN_KEY:
         required: false
